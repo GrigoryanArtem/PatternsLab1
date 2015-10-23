@@ -17,13 +17,22 @@ namespace Decorator
         }
         static void Main(string[] args)
         {
-            Pizza.Pizza pizza = new ItalianPizza();
+            Pizza.Pizza[] pizzas = new Pizza.Pizza[2];
 
-            PrintPizza(pizza);
+            pizzas[0] = new ItalianPizza();
+            pizzas[1] = new FrancePizza();
 
-            pizza = new Cheese(pizza);
+            foreach(var pz in pizzas)
+                PrintPizza(pz);
 
-            PrintPizza(pizza);
+            pizzas[0] = new Cheese(pizzas[0]);
+            pizzas[0] = new Meat(pizzas[0]);
+
+            pizzas[1] = new Pine(pizzas[1]);
+            pizzas[1] = new Sauce(pizzas[1]);
+
+            foreach (var pz in pizzas)
+                PrintPizza(pz);
         }
     }
 }
