@@ -10,17 +10,20 @@ namespace Decorator
 {
     class Program
     {
+        static void PrintPizza(Pizza.Pizza pizza)
+        {
+            Console.WriteLine("\tPizza: {0}\n\tCost: {1}$\n\tCalories: {2}\n\n",
+                pizza.GetInfo(), pizza.GetCost(), pizza.GetCalories());
+        }
         static void Main(string[] args)
         {
             Pizza.Pizza pizza = new ItalianPizza();
 
-            Console.WriteLine("\tPizza: {0}\n\tCost: {1}$\n\tCalories: {2}\n\n",
-                pizza.GetInfo(), pizza.GetCost(), pizza.GetCalories());
+            PrintPizza(pizza);
 
             pizza = new Cheese(pizza);
 
-            Console.WriteLine("\tPizza: {0}\n\tCost: {1}$\n\tCalories: {2}\n\n",
-                pizza.GetInfo(), pizza.GetCost(), pizza.GetCalories());
+            PrintPizza(pizza);
         }
     }
 }
