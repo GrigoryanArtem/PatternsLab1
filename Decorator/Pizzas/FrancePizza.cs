@@ -8,12 +8,14 @@ namespace Decorator.Pizza
 {
     class FrancePizza : Pizza
     {
+        //Константы: имя, цена, калории 
+        private const string NAME = "France Pizza";
         private const double COST = 33.50;
         private const uint CALORIES = 800;
 
         public FrancePizza()
         {
-            _information = "France Pizza";
+            _information = NAME;
         }
 
         public override double GetCost()
